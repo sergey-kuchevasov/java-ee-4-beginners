@@ -5,33 +5,31 @@
  */
 package com.acme.edu;
 
-import static com.acme.edu.Calculator.add;
-import static com.acme.edu.Calculator.getResult;
 /**
  *
  * @author eugene
  */
 public class Main {
-    public static void main(String[] args) {
-        Calculator.add(1, 1);
+    public static strictfp void main(String[] args) {
+        byte b = 0; //0..255 | -128..127
+        short s = 0; 
+        int i = 0;
+        long l = 999999999999L;
         
-        Calculator calculator = new Calculator();
-        calculator = null;
-        calculator.getResult();
+        for(int counter = 0; counter < 200; counter++) {
+            b++;
+        }
+        System.out.println(b);
         
-        System.out.println(getResult());
-    }
-}
-
-class Calculator {
-    private static int result;
-    
-    public static void add(int a, int b) {
-        result = a + b;
-    }
-    
-    public static int getResult() {
-        return result;
+        int ii = 0555;
+        char c = '\r';
+        
+        float f = 0.0F;
+        double d = 1e4;
+        System.out.println(.1 +.2); //IEEE 
+        
+        boolean bb = true | false;    
+        
     }
 }
 
