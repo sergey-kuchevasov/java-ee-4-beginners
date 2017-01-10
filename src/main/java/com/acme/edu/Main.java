@@ -9,7 +9,7 @@ package com.acme.edu;
  *
  * @author eugene
  */
-public class Main {
+public class Main {   
     public static strictfp void main(String[] args) {
         byte b = 0; //0..255 | -128..127
         short s = 0; 
@@ -31,6 +31,10 @@ public class Main {
         boolean bb = true | false;    
         
     }
+}
+
+class Employee {
+    int id;
 }
 
 
