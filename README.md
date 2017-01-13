@@ -210,3 +210,8 @@
 
 ### Обработка событий в JSF web приложениях
 
+---
+
+# Литература
+- http://tinyurl.com/skilltrek-reading-list
+- http://agilerussia.ru/practices/version-control-with-multiple-teams/
