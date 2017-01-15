@@ -1,12 +1,15 @@
 package com.acme.edu;
 
 import java.io.Serializable;
+import javax.enterprise.context.Dependent;
 
+//@Dependent
 public class User implements Serializable {
-    private int id;
-    private String name;
+    private int id = 1;
+    private String name = "test name";
 
-    public User(int id, String name) {
+    public User() {}
+    User(int id, String name) {
         this.id = id;
         this.name = name;
     }

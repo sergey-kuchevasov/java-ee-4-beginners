@@ -172,16 +172,21 @@
 - JSTL
 
 ## WS (REST, SOAP)
+- http://www.mkyong.com/tutorials/jax-ws-tutorials/
+- http://www.journaldev.com/9123/jax-ws-tutorial
+- http://docs.oracle.com/javaee/6/tutorial/doc/bnayn.html
 
 ### Что такое веб-сервис 
-- Протокол SOAP: 
-- Структура сообщения
-- WSDL + различные варианты биндинга (rpc/encoded, rpc/literal, document/literal) 
+- Протокол SOAP
+- Структура сообщения (https://www.mkyong.com/webservices/jax-ws/jax-ws-hello-world-example-document-style/)
+- WSDL + различные варианты биндинга (rpc/encoded, rpc/literal, document/literal) http://www.mkyong.com/webservices/jax-ws/jax-ws-hello-world-example/
+- http://www.javatpoint.com/jax-ws-tutorial + http://stackoverflow.com/questions/9062475/what-is-the-difference-between-document-style-and-rpc-style-communication + http://amaloff.blogspot.ru/2015/08/wsdl-wsdl.html
 
-### JAX-WS на примере Axis
-- WSDL-to-Java 
-- Java-to-WSDL 
-- Client (sync/async/dispatch)
+### JAX-WS на примере JAX-WS RI + Metro
+- https://coderanch.com/t/625764/certification/difference-wsimport-wsgen-command
+- WSDL-to-Java (https://www.mkyong.com/webservices/jax-ws/jax-ws-wsimport-tool-example/)
+- Java-to-WSDL (http://www.mkyong.com/webservices/jax-ws/jax-ws-wsgen-tool-example/)
+- Client (sync/async/dispatch) http://www.ibm.com/support/knowledgecenter/SSAW57_7.0.0/com.ibm.websphere.nd.iseries.doc/info/iseriesnd/ae/twbs_jaxwsclientasync.html + https://dzone.com/articles/jax-rs-20-asynchronous-server-and-client + https://docs.oracle.com/cd/E14571_01/web.1111/e13734/asynch.htm#WSADV115
 - Проблемы совместимости
 
 ### JAX-RS
