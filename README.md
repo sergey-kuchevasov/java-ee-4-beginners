@@ -136,22 +136,29 @@
 ## JNDI и изменения данных в сервисе
 
 ### Введение в JNDI
-- Концепции служб каталога. Схемы именования
+- Концепции служб каталога. Схемы именования. ()
 - Основные пакеты JNDI
+- https://docs.oracle.com/javase/tutorial/jndi/index.html
+- https://docs.oracle.com/javase/tutorial/jndi/concepts/index.html
 
 ### Naming Operations
 - Поиск в каталоге 
 - Контексты и связывание
+- https://docs.oracle.com/javase/tutorial/jndi/ops/index.html
+- http://www.java2s.com/Code/Java/JNDI-LDAP/CatalogJNDI-LDAP.htm
 
 ### Directory Operations:
+- https://docs.oracle.com/javase/tutorial/jndi/ldap/index.html
 - Работа с аттрибутами
+- http://www.zytrax.com/books/ldap/ape/
 - Поиск по каталогу
+- https://docs.oracle.com/javase/tutorial/jndi/ops/search.html
 
 ### Связываем вместе Naming и Directory Operations:
-- String Names и Structured Names
-- Composite Names
-- Compound Names
-- Name Parsers
+- String Names и Structured Names (http://docs.oracle.com/javase/jndi/tutorial/beyond/names/string.html)
+- Composite Names (http://docs.oracle.com/javase/jndi/tutorial/getStarted/concepts/glossary.html#COMPOSITENAME)
+- Compound Names (http://docs.oracle.com/javase/jndi/tutorial/beyond/names/compound.html)
+- Name Parsers (http://docs.oracle.com/javase/jndi/tutorial/beyond/names/parse.html)
 
 ## Servlet API
 - Lifecycle
