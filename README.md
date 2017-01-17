@@ -237,3 +237,7 @@
 # Литература
 - http://tinyurl.com/skilltrek-reading-list
 - http://agilerussia.ru/practices/version-control-with-multiple-teams/
+
+# Еще тренинги
+- http://tinyurl.com/skilltrek-trainings
+
