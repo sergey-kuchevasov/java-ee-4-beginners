@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package su.jet.javacource;
+package su.jet.javacource.writers;
 
-import java.util.List;
+import su.jet.javacource.User;
 
 /**
  *
  * @author kurmesov
  */
-public interface Reader {
-    User[] read();
+public interface Writer {
+    void write(User user);
+    
 }

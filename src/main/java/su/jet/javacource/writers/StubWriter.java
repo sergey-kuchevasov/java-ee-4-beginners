@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package su.jet.javacource;
+package su.jet.javacource.writers;
+
+import su.jet.javacource.User;
+import su.jet.javacource.writers.Writer;
 
 /**
  *

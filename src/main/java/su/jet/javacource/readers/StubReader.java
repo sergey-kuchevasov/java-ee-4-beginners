@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package su.jet.javacource;
+package su.jet.javacource.readers;
 
+import su.jet.javacource.readers.Reader;
 import java.util.List;
+import su.jet.javacource.User;
 
 /**
  *

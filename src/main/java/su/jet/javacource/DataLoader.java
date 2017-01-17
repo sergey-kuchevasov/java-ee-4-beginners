@@ -5,6 +5,8 @@
  */
 package su.jet.javacource;
 
+import su.jet.javacource.readers.Reader;
+import su.jet.javacource.writers.Writer;
 import java.util.ArrayList;
 import java.util.List;
 

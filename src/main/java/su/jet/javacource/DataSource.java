@@ -5,6 +5,8 @@
  */
 package su.jet.javacource;
 
+import su.jet.javacource.writers.Writer;
+
 /**
  *
  * @author kurmesov
