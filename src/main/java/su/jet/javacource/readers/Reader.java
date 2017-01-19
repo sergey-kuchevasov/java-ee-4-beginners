@@ -6,6 +6,7 @@
 package su.jet.javacource.readers;
 
 import java.io.IOException;
+import java.util.Set;
 import su.jet.javacource.User;
 
 /**
@@ -13,5 +14,5 @@ import su.jet.javacource.User;
  * @author kurmesov
  */
 public interface Reader {
-    User read() throws IOException ;
+    Set<User> read() throws IOException ;
 }

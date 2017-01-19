@@ -16,15 +16,19 @@ import su.jet.javacource.readers.StubReader;
  * @author kurmesov
  */
 public class Test {
+
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        
-        File f = new File("c:/work/temp/users.csv");
-        System.out.println(f.exists());
-   
-        DataLoader dataLoader = new DataLoader(
-                new DataSource[] {new StubDataSource("DB"), new StubDataSource("LDAP")},
-                new CsvReader(f)
-        );
-        dataLoader.load();
+
+        File file = new File("c:/work/temp/users.csv");
+        System.out.println(file.exists());
+        try {
+            DataLoader dataLoader = new DataLoader(
+                    new DataSource[]{new StubDataSource("DB"), new StubDataSource("LDAP")},
+                    new CsvReader(file, 10)
+            );
+            dataLoader.load();
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+        }
     }
 }

@@ -11,8 +11,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashSet;
+import java.util.Set;
 import su.jet.javacource.User;
 
 /**
@@ -21,24 +21,42 @@ import su.jet.javacource.User;
  */
 public class CsvReader implements Reader {
 
-
     private final BufferedReader bufferedReader;
+    private final int batchSize;
+    private int currentLineNumber;
 
-    public CsvReader(File filePath) throws FileNotFoundException {
+    public CsvReader(File filePath, int batchSize) throws FileNotFoundException {
 
         this.bufferedReader = new BufferedReader(new InputStreamReader((new FileInputStream(filePath))));
+        this.batchSize = batchSize;
 
     }
 
     @Override
-    public User read() throws IOException {
+    public Set<User> read() throws IOException {
 
-        String line = bufferedReader.readLine();
-        if (line != null) {
-            String[] splitedLine = line.split(",");
-            return new User(Integer.parseInt(splitedLine[0]), splitedLine[1]);
-        } else {
-            return null;
+        String line = null;
+        String[] splitedLine;
+        Set<User> users = new HashSet<>();
+
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                this.currentLineNumber++;
+                splitedLine = line.split(",");
+                try {
+                users.add(new User(Integer.parseInt(splitedLine[0]), splitedLine[1]));
+                } catch (ArrayIndexOutOfBoundsException | NumberFormatException e){
+                    System.out.println("Error while parsing file. skiping line num "+this.currentLineNumber+": "+line);
+                }
+                if (users.size() == batchSize) {
+                    break;
+                }
+            }
+            return users;
+        } finally {
+            if ((line == null) && (this.bufferedReader != null)) {
+                this.bufferedReader.close();
+            }
         }
 
     }
