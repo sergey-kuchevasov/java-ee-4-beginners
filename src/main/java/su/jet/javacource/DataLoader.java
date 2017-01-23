@@ -5,10 +5,12 @@
  */
 package su.jet.javacource;
 
+import java.io.IOException;
+import su.jet.javacource.writers.exception.DataWriteException;
+import java.util.Set;
 import su.jet.javacource.readers.Reader;
 import su.jet.javacource.writers.Writer;
-import java.util.ArrayList;
-import java.util.List;
+import su.jet.javacource.writers.exception.DataWriteException;
 
 /**
  *
@@ -19,25 +21,26 @@ public class DataLoader {
     private DataSource[] dataSources;
     private Reader reader;
 
-
     public DataLoader(DataSource[] dataSources, Reader reader) {
         this.dataSources = dataSources;
         this.reader = reader;
     }
 
-    public void load() {
-        User[] users = reader.read();
-        System.out.println((users == null ? "0" : users.length) +" users was read");
-        for (DataSource dataSource : dataSources) {
-            System.out.println("handling datasource:"+dataSource.getType());
-            for (User user : users) {
-                if (user == null) continue;
-                System.out.println("handling user"+user.toString());
-                Writer writer = dataSource.getWriter();
-                writer.write(user);
-                
-           
+    public void load() throws IOException {
+        Set<User> users;
+        int cnt = 0;
+        try {
+            while ((users = reader.read()) != null) {
+                cnt++;
+                System.out.println("iterating " + cnt + " batch");
+                for (DataSource dataSource : dataSources) {
+                    System.out.println("handling datasource:" + dataSource.getType());
+                    Writer writer = dataSource.getWriter();
+                    writer.write(users);
+                }
             }
+        } catch (IOException | DataWriteException ex) {
+            System.out.println("Невозможно прочитать строку: " + ex);
         }
     }
 
