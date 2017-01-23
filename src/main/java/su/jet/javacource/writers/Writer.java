@@ -5,13 +5,16 @@
  */
 package su.jet.javacource.writers;
 
+import java.util.Set;
 import su.jet.javacource.User;
+import su.jet.javacource.writers.exception.DataWriteException;
 
 /**
  *
  * @author kurmesov
  */
 public interface Writer {
-    void write(User user);
-    
+
+
+    void write(Set<User> users) throws DataWriteException;
 }
