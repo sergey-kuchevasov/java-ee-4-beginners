@@ -23,7 +23,7 @@ public class Test {
         System.out.println(file.exists());
         try {
             DataLoader dataLoader = new DataLoader(
-                    new DataSource[]{new StubDataSource("DB"), new StubDataSource("LDAP")},
+                    new DataSource[]{new DerbyDbDataSource("jdbc:derby://localhost/example;create=true", "app", "app"), new StubDataSource("LDAP")},
                     new CsvReader(file, 10)
             );
             dataLoader.load();
