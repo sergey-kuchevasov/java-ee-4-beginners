@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import su.jet.javacource.readers.CsvReader;
-import su.jet.javacource.readers.StubReader;
 
 /**
  *
@@ -23,7 +22,7 @@ public class Test {
         System.out.println(file.exists());
         try {
             DataLoader dataLoader = new DataLoader(
-                    new DataSource[]{new DerbyDbDataSource("jdbc:derby://localhost/example;create=true", "app", "app"), new StubDataSource("LDAP")},
+                    new DataSource[]{new DerbyDbDataSource("jdbc:derby://localhost/example;create=true", "app", "app"), new LdapDataSource("ldap://localhost:10389/ou=system", "uid=admin,ou=system", "secret")},
                     new CsvReader(file, 10)
             );
             dataLoader.load();
