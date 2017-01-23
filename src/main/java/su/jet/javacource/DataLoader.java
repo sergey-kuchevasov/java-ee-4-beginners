@@ -6,10 +6,11 @@
 package su.jet.javacource;
 
 import java.io.IOException;
-import java.util.Iterator;
+import su.jet.javacource.writers.exception.DataWriteException;
 import java.util.Set;
 import su.jet.javacource.readers.Reader;
 import su.jet.javacource.writers.Writer;
+import su.jet.javacource.writers.exception.DataWriteException;
 
 /**
  *
@@ -31,20 +32,15 @@ public class DataLoader {
         try {
             while ((users = reader.read()) != null) {
                 cnt++;
-                System.out.println("iterating "+cnt+" batch");
+                System.out.println("iterating " + cnt + " batch");
                 for (DataSource dataSource : dataSources) {
-                    Iterator usersIterator = users.iterator();
-                    while (usersIterator.hasNext()) {
-                        User user = (User) usersIterator.next();
-                        System.out.println("handling datasource:" + dataSource.getType());
-                        System.out.println("handling user" + user.toString());
-                        Writer writer = dataSource.getWriter();
-                        writer.write(user);
-                    }
+                    System.out.println("handling datasource:" + dataSource.getType());
+                    Writer writer = dataSource.getWriter();
+                    writer.write(users);
                 }
             }
-        } catch (IOException ex) {
-            System.out.println("Невозможно прочитать строку");
+        } catch (IOException | DataWriteException ex) {
+            System.out.println("Невозможно прочитать строку: " + ex);
         }
     }
 
